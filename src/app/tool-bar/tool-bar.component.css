@@ -1,0 +1,31 @@
+.container{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 27.5%;
+    height: 100%;
+    background-color: #FFF;
+    padding: 1rem;
+    color: #4F4F4F;
+    font-size: .875rem;
+    z-index: 1001;
+}
+
+.form-control {
+    border: 0;
+    box-shadow: none;
+    background-color: #ececec;
+    border-radius: 0;
+}
+
+.scroll-bar {
+  white-space: nowrap; overflow-x: scroll;
+} 
+.header a {
+    margin-right: 5px; 
+}
+
+.header a {
+    color: black;
+    text-decoration: none;
+}

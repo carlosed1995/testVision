@@ -1,0 +1,525 @@
+ <div class="container scroll-bar">
+  <app-tool-bar></app-tool-bar>
+   <div *ngIf="jsonLuminaries == '' ">Haga click encima o cerca de un elemento.</div>
+   <div *ngIf="jsonLuminaries != '' ">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="observaciones" class="col-form-label col-sm-5">Observaciones:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="observaciones" id="observaciones" class="form-control" placeholder="Observaciones" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="id_luminaria" class="col-form-label col-sm-5">Id Luminaria:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="id_luminaria" id="id_luminaria" class="form-control" placeholder="Id Luminaria" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="punto_luz" class="col-form-label col-sm-5">Punto Luz:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="punto_luz" id="punto_luz" class="form-control" placeholder="Punto Luz" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="fecha_alta" class="col-form-label col-sm-5">fecha alta:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="fecha_alta" id="fecha_alta" class="form-control" placeholder="Fecha alta" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="vial" class="col-form-label col-sm-5">Vial:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="vial" id="vial" class="form-control" placeholder="Vial" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="numero" class="col-form-label col-sm-5">Número:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="numero" id="numero" class="form-control" placeholder="Número" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="lado_via" class="col-form-label col-sm-5">Lado Via:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="lado_via" id="lado_via" class="form-control" placeholder="Lado Via" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="distancia_eje" class="col-form-label col-sm-5">Distancia Eje:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="distancia_eje" id="distancia_eje" class="form-control" placeholder="Distancia Eje" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="s1" class="col-form-label col-sm-5">S1:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="s1" id="s1" class="form-control" placeholder="S1" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="s2" class="col-form-label col-sm-5">S2:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="s2" id="s2" class="form-control" placeholder="S2" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="centro_mando" class="col-form-label col-sm-5">Centro Mando:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="centro_mando" id="centro_mando" class="form-control" placeholder="Centro Mando" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="circuito" class="col-form-label col-sm-5">Circuito:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="circuito" id="circuito" class="form-control" placeholder="Circuito" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="operativa" class="col-form-label col-sm-5">Operativa:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="operativa" id="operativa" class="form-control" placeholder="Operativa" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="altura" class="col-form-label col-sm-5">Altura:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="altura" id="altura" class="form-control" placeholder="Altura" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="tipo_soporte" class="col-form-label col-sm-5">Tipo Soporte:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="tipo_soporte" id="tipo_soporte" class="form-control" placeholder="Tipo Soporte" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="marca_soporte" class="col-form-label col-sm-5">Marca Soporte:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="marca_soporte" id="marca_soporte" class="form-control" placeholder="Marca Soporte" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="modelo_soporte" class="col-form-label col-sm-5">Modelo Soporte:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="modelo_soporte" id="modelo_soporte" class="form-control" placeholder="Modelo Soporte" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="estado_soporte" class="col-form-label col-sm-5">Estado Soporte:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="estado_soporte" id="estado_soporte" class="form-control" placeholder="Estado Soporte" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="situacion_soporte" class="col-form-label col-sm-5">Situacion Soporte:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="situacion_soporte" id="situacion_soporte" class="form-control" placeholder="Situacion Soporte" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="tamano_brazo" class="col-form-label col-sm-5">Tamaño Brazo:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="tamano_brazo" id="tamano_brazo" class="form-control" placeholder="Tamaño Brazo" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="longitud_brazo" class="col-form-label col-sm-5">Longitud Brazo:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="longitud_brazo" id="longitud_brazo" class="form-control" placeholder="Longitud Brazo" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="orientacion_brazo" class="col-form-label col-sm-5">Orientacion Brazo:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="orientacion_brazo" id="orientacion_brazo" class="form-control" placeholder="Orientacion Brazo" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="tipo_luminaria" class="col-form-label col-sm-5">Tipo Luminaria:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="tipo_luminaria" id="tipo_luminaria" class="form-control" placeholder="Tipo Luminaria" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="marca_luminaria" class="col-form-label col-sm-5">Marca luminaria:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="marca_luminaria" id="marca_luminaria" class="form-control" placeholder="Marca luminaria" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="modelo_luminaria" class="col-form-label col-sm-5">Modelo luminaria:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="modelo_luminaria" id="modelo_luminaria" class="form-control" placeholder="Modelo luminaria" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="estado_luminaria" class="col-form-label col-sm-5">Estado Luminaria:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="estado_luminaria" id="estado_luminaria" class="form-control" placeholder="Estado Luminaria" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="tipo_lampara" class="col-form-label col-sm-5">Tipo Lampara:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="tipo_lampara" id="tipo_lampara" class="form-control" placeholder="Tipo Lampara" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="marca_lampara" class="col-form-label col-sm-5">Marca Lampara:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="marca_lampara" id="marca_lampara" class="form-control" placeholder="Marca Lampara" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>    
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="modelo_lampara" class="col-form-label col-sm-5">Modelo Lampara:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="modelo_lampara" id="modelo_lampara" class="form-control" placeholder="Modelo Lampara" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="estado_lampara" class="col-form-label col-sm-5">Estado Lampara:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="estado_lampara" id="estado_lampara" class="form-control" placeholder="Estado Lampara" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="cantidad_lamparas" class="col-form-label col-sm-5">Cantidad Lamparas:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="cantidad_lamparas" id="cantidad_lamparas" class="form-control" placeholder="Cantidad Lamparas" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="potencia" class="col-form-label col-sm-5">Potencia:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="potencia" id="potencia" class="form-control" placeholder="Potencia" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="equipo_auxiliar" class="col-form-label col-sm-5">Equipo auxiliar:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="equipo_auxiliar" id="equipo_auxiliar" class="form-control" placeholder="Equipo auxiliar" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="situacion_equipo_auxiliar" class="col-form-label col-sm-5">Situacion Equipo Auxiliar:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="situacion_equipo_auxiliar" id="situacion_equipo_auxiliar" class="form-control" placeholder="Situacion Equipo Auxiliar" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="orientacion" class="col-form-label col-sm-5">Orientacion:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="orientacion" id="orientacion" class="form-control" placeholder="Orientacion" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="alta" class="col-form-label col-sm-5">Alta:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="alta" id="alta" class="form-control" placeholder="Alta" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="usuario_alta" class="col-form-label col-sm-5">Usuario Alta:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="usuario_alta" id="usuario_alta" class="form-control" placeholder="Usuario Alta" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="fecha_alta" class="col-form-label col-sm-5">Fecha Alta:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="fecha_alta" id="fecha_alta" class="form-control" placeholder="Fecha Alta" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="modificado" class="col-form-label col-sm-5">Modificado:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="modificado" id="modificado" class="form-control" placeholder="Modificado" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="usuario_modificado" class="col-form-label col-sm-5">Usuario Modificado:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="usuario_modificado" id="usuario_modificado" class="form-control" placeholder="Usuario Modificado" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="fecha_modificado" class="col-form-label col-sm-5">Fecha Modificado:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="fecha_modificado" id="fecha_modificado" class="form-control" placeholder="Fecha Modificado" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="herramienta" class="col-form-label col-sm-5">Herramienta:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="herramienta" id="herramienta" class="form-control" placeholder="Herramienta" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="numero_registro" class="col-form-label col-sm-5">Numero Registro:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="numero_registro" id="numero_registro" class="form-control" placeholder="Numero Registro" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="envio" class="col-form-label col-sm-5">Envio:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="envio" id="envio" class="form-control" placeholder="Envio" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="fecha_envio" class="col-form-label col-sm-5">Fecha Envio:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="fecha_envio" id="fecha_envio" class="form-control" placeholder="Fecha Envio" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="id_centro_mando" class="col-form-label col-sm-5">Id Centro Mando:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="id_centro_mando" id="id_centro_mando" class="form-control" placeholder="Id Centro Mando" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group row">
+                <label for="id_circuito" class="col-form-label col-sm-5">Id Circuito:</label>
+              <div class="col-sm-7">
+            <input type="text" formControlName="id_circuito" id="id_circuito" class="form-control" placeholder="Id Circuito" tabindex="1" [disabled]="true">
+              </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</form> 
+</div>
+</div> 

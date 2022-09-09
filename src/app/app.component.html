@@ -1,0 +1,11 @@
+<div class="map-container"
+        leaflet
+        [leafletOptions]="mapOptions"
+        [leafletLayer]="baseLayer"
+        [leafletFitBounds]="mapFitBounds"
+        (leafletMapReady)="onMapReady($event)" 
+> 
+</div>
+<router-outlet></router-outlet>
+
+ 

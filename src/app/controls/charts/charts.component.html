@@ -1,0 +1,17 @@
+<div class="container scroll-bar">
+  <app-tool-bar></app-tool-bar>
+   <div >  
+      <p>Atributo</p>
+      <select [(ngModel)]="selectedValue" (change)="changed()"> 
+        <option *ngFor='let d of dataSelect' [value]="d.value">
+        {{d.text}}
+        </option>
+        </select> 
+        <br>
+        <highcharts-chart
+        [Highcharts] = "highcharts" 
+        [options] = "chartOptions" 
+        style = "width: 100%; height: 400px; display: block;">
+     </highcharts-chart>
+   </div>
+ </div> 
