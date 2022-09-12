@@ -14,17 +14,9 @@ require('highcharts/modules/funnel')(Highcharts);
 })
 
 export class ChartsComponent implements OnInit {
-  sampleData: any;
-  sampleData1: any;
   highcharts = Highcharts;
   arrayLuminaries: any[] = []; 
-  series: any[] = [];
-  objectArry: any[] = [];
   chartOptions: any;
-  catergoryName: any[] = [];
-  nameluminarie:any[]=[];
-  valueLuminarie:any[]=[];
-  last90dayscount:any[]=[];
 
   title = 'myHighchart';
 
@@ -103,7 +95,7 @@ export class ChartsComponent implements OnInit {
        y: value,
      };  
     }); 
-    
+
     console.log(objects);
     for (const key in objects) {
      if (Object.prototype.hasOwnProperty.call(objects, key)) {
