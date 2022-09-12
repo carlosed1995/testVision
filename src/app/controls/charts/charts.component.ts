@@ -22,6 +22,9 @@ export class ChartsComponent implements OnInit {
   objectArry: any[] = [];
   chartOptions: any;
   catergoryName: any[] = [];
+  nameluminarie:any[]=[];
+  valueLuminarie:any[]=[];
+  last90dayscount:any[]=[];
 
   title = 'myHighchart';
 
@@ -56,22 +59,18 @@ export class ChartsComponent implements OnInit {
   private async getLumunaries():Promise<void>
   {
     
-    const luminaires = await (await fetch('assets/data/luminarias.geojson')).json();
- // this.chartOptions = luminaires;
+    const luminaires = await (await fetch('assets/data/luminarias.geojson')).json(); 
  
-  let array = new Array;
-  for (let data in luminaires.features) { 
-    array.push(luminaires.features[data].properties)
-  }
+    let array = new Array;
+    for (let data in luminaires.features) { 
+     array.push(luminaires.features[data].properties)
+    }
 
-  for (let propertiesJson in array) { 
-     this.arrayLuminaries.push(array[propertiesJson]);
-    //  array.push(luminaires.features[data].properties)
-   }
- //
+    for (let propertiesJson in array) { 
+     this.arrayLuminaries.push(array[propertiesJson]); 
+    } 
  
-
-    this.chartInInt(); 
+    this.chartInInt(this.selectedValue); 
 
   }
 
@@ -82,53 +81,66 @@ export class ChartsComponent implements OnInit {
         counter[p] = counter.hasOwnProperty(p) ? counter[p] + 1 : 1;
         return counter;
     }, {})
-}
-
- 
-
-  changed()
-  {
-
   }
 
-  chartInInt() {
-    let people = this.arrayLuminaries;
-   // console.log(people);
-    let count = this.count(people, function (item:any) {
-      return item.tipo_soporte
+  changed(value:any)
+  {
+    this.selectedValue = value;
+    this.chartInInt(value);
+  }
+
+  chartInInt(value:any) {
+    let luminaires = this.arrayLuminaries; 
+    let count = this.count(luminaires, function (item:any) {
+       return item[value];
   });
  
-   let arrayData:any = [];
-   //var json = '';
+   let arrayData:any = []; 
    const objects:any = {};
     Object.entries(count).forEach(([key, value], index) => { 
      objects[index] = {
-       name: key,
-       value: value,
+      name: key,
+       y: value,
      };  
     }); 
+    
     console.log(objects);
     for (const key in objects) {
      if (Object.prototype.hasOwnProperty.call(objects, key)) {
       const element = objects[key]; 
       arrayData.push(objects[key]);  
+   }
   }
-}
-console.log(arrayData)
- 
 
-    this.chartOptions = {
-      colors: ['#FFD700', '#C0C0C0', '#CD7F32'],
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie' 
-      },
-      title: {
-        text: 'Count',
-      },
-      series: arrayData,
-    };
-  }
-}
+  this.chartOptions= {
+   chart: {
+     plotBackgroundColor: null,
+     plotBorderWidth: null,
+     plotShadow: false,
+     type: 'pie'
+  },
+  title: {
+    text: 'Luminarias'
+  },
+  tooltip: {
+    pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+           
+        },
+        showInLegend: true
+    }
+  },
+  series: [{ 
+    colorByPoint: true,
+    data: arrayData
+  }]
+  }; 
+   }
+ }
